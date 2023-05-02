@@ -1,0 +1,98 @@
+bot.py:44 #INFO     [2023-05-01 23:53:51,631] - __main__ - Starting bot
+db.py:18 #INFO     [2023-05-01 23:53:51,642] - telegram_bot.persistance.db - Setup PostgreSQL connection
+bot.py:44 #INFO     [2023-05-01 23:54:55,972] - __main__ - Starting bot
+db.py:18 #INFO     [2023-05-01 23:54:55,984] - telegram_bot.persistance.db - Setup PostgreSQL connection
+db.py:26 #INFO     [2023-05-01 23:54:56,151] - telegram_bot.persistance.db - Database tables created
+dispatcher.py:358 #INFO     [2023-05-01 23:54:56,152] - aiogram.dispatcher.dispatcher - Start polling.
+acl_middleware.py:24 #INFO     [2023-05-01 23:55:07,593] - telegram_bot.middlewares.acl_middleware - New user message.from_user=<User {"id": 254727353, "is_bot": false, "first_name": "Maxim", "last_name": "Matantsev", "username": "Fulkerson", "language_code": "ru"}>
+error_handler.py:66 #ERROR    [2023-05-01 23:55:07,596] - root - Update: {"update_id": 865617483, "message": {"message_id": 1, "from": {"id": 254727353, "is_bot": false, "first_name": "Maxim", "last_name": "Matantsev", "username": "Fulkerson", "language_code": "ru"}, "chat": {"id": 254727353, "first_name": "Maxim", "last_name": "Matantsev", "username": "Fulkerson", "type": "private"}, "date": 1682974507, "text": "/start", "entities": [{"type": "bot_command", "offset": 0, "length": 6}]}} 
+'UserModel' object has no attribute 'fill'
+Traceback (most recent call last):
+  File "/home/maxim/PycharmProjects/ChinaTravel/telegram_bot/middlewares/acl_middleware.py", line 21, in on_pre_process_message
+    user = await self.__user_service.get_user_by_tg_id(message.from_user.id)
+  File "/home/maxim/PycharmProjects/ChinaTravel/telegram_bot/services/user_service.py", line 32, in get_user_by_tg_id
+    raise Exception("User not found")
+Exception: User not found
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiogram/dispatcher/dispatcher.py", line 256, in process_update
+    return await self.message_handlers.notify(update.message)
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiogram/dispatcher/handler.py", line 101, in notify
+    await self.dispatcher.middleware.trigger(f"pre_process_{self.middleware_key}", args + (data,))
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiogram/dispatcher/middlewares.py", line 53, in trigger
+    await app.trigger(action, args)
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiogram/dispatcher/middlewares.py", line 106, in trigger
+    await handler(*args)
+  File "/home/maxim/PycharmProjects/ChinaTravel/telegram_bot/middlewares/acl_middleware.py", line 27, in on_pre_process_message
+    user = await self.__user_service.create_user(user_dto)
+  File "/home/maxim/PycharmProjects/ChinaTravel/telegram_bot/services/user_service.py", line 40, in create_user
+    user_model.fill(user_dto)
+AttributeError: 'UserModel' object has no attribute 'fill'
+base_events.py:1707 #ERROR    [2023-05-01 23:55:07,598] - asyncio - Task exception was never retrieved
+future: <Task finished name='Task-25' coro=<Dispatcher._process_polling_updates() done, defined at /home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiogram/dispatcher/dispatcher.py:407> exception=AttributeError("'UserModel' object has no attribute 'fill'")>
+Traceback (most recent call last):
+  File "/home/maxim/PycharmProjects/ChinaTravel/telegram_bot/middlewares/acl_middleware.py", line 21, in on_pre_process_message
+    user = await self.__user_service.get_user_by_tg_id(message.from_user.id)
+  File "/home/maxim/PycharmProjects/ChinaTravel/telegram_bot/services/user_service.py", line 32, in get_user_by_tg_id
+    raise Exception("User not found")
+Exception: User not found
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiogram/dispatcher/dispatcher.py", line 415, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiogram/dispatcher/dispatcher.py", line 235, in process_updates
+    return await asyncio.gather(*tasks)
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiogram/dispatcher/dispatcher.py", line 256, in process_update
+    return await self.message_handlers.notify(update.message)
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiogram/dispatcher/handler.py", line 101, in notify
+    await self.dispatcher.middleware.trigger(f"pre_process_{self.middleware_key}", args + (data,))
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiogram/dispatcher/middlewares.py", line 53, in trigger
+    await app.trigger(action, args)
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiogram/dispatcher/middlewares.py", line 106, in trigger
+    await handler(*args)
+  File "/home/maxim/PycharmProjects/ChinaTravel/telegram_bot/middlewares/acl_middleware.py", line 27, in on_pre_process_message
+    user = await self.__user_service.create_user(user_dto)
+  File "/home/maxim/PycharmProjects/ChinaTravel/telegram_bot/services/user_service.py", line 40, in create_user
+    user_model.fill(user_dto)
+AttributeError: 'UserModel' object has no attribute 'fill'
+dispatcher.py:390 #ERROR    [2023-05-02 08:03:11,872] - aiogram.dispatcher.dispatcher - Cause exception while getting updates.
+Traceback (most recent call last):
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiogram/dispatcher/dispatcher.py", line 381, in start_polling
+    updates = await self.bot.get_updates(
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiogram/bot/bot.py", line 110, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiogram/bot/api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiohttp/client.py", line 1141, in __aenter__
+    self._resp = await self._coro
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiohttp/client.py", line 560, in _request
+    await resp.start(conn)
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiohttp/client_reqrep.py", line 914, in start
+    self._continue = None
+  File "/home/maxim/PycharmProjects/ChinaTravel/venv/lib/python3.8/site-packages/aiohttp/helpers.py", line 721, in __exit__
+    raise asyncio.TimeoutError from None
+asyncio.exceptions.TimeoutError
+dispatcher.py:405 #WARNING  [2023-05-02 09:19:46,799] - aiogram.dispatcher.dispatcher - Polling is stopped.
+bot.py:71 #ERROR    [2023-05-02 09:19:46,800] - __main__ - Bot stopped!
+bot.py:44 #INFO     [2023-05-02 09:19:48,723] - __main__ - Starting bot
+db.py:18 #INFO     [2023-05-02 09:19:48,732] - telegram_bot.persistance.db - Setup PostgreSQL connection
+db.py:26 #INFO     [2023-05-02 09:19:48,834] - telegram_bot.persistance.db - Database tables created
+dispatcher.py:358 #INFO     [2023-05-02 09:19:48,834] - aiogram.dispatcher.dispatcher - Start polling.
+dispatcher.py:405 #WARNING  [2023-05-02 09:19:51,026] - aiogram.dispatcher.dispatcher - Polling is stopped.
+bot.py:71 #ERROR    [2023-05-02 09:19:51,028] - __main__ - Bot stopped!
+bot.py:44 #INFO     [2023-05-02 09:19:54,368] - __main__ - Starting bot
+db.py:18 #INFO     [2023-05-02 09:19:54,400] - telegram_bot.persistance.db - Setup PostgreSQL connection
+db.py:26 #INFO     [2023-05-02 09:19:54,719] - telegram_bot.persistance.db - Database tables created
+dispatcher.py:358 #INFO     [2023-05-02 09:20:02,468] - aiogram.dispatcher.dispatcher - Start polling.
+dispatcher.py:405 #WARNING  [2023-05-02 09:20:20,338] - aiogram.dispatcher.dispatcher - Polling is stopped.
+bot.py:44 #INFO     [2023-05-02 09:20:38,560] - __main__ - Starting bot
+db.py:18 #INFO     [2023-05-02 09:20:38,587] - telegram_bot.persistance.db - Setup PostgreSQL connection
+bot.py:71 #ERROR    [2023-05-02 09:22:31,969] - __main__ - Bot stopped!
