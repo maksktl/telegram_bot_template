@@ -14,4 +14,4 @@ class UserDto:
         self.telegram_id = user.id
         self.firstname = user.first_name
         self.lastname = user.last_name
-        self.telegram_username = user.telegram_username
+        self.telegram_username = user.username
